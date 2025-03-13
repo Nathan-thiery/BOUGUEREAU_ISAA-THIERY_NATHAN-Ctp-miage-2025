@@ -84,6 +84,8 @@ postgres : indique l'image Docker à utiliser, ici l'image officielle de Postgre
 * Compléter le code manquant dans la méthode `TodoListController.createTodoItem()`
 
 *Pourquoi `todoItemRepository` est-il `null` ? Quelle est la meilleure façon de l'injecter ?*
+todoItemRepository est null car il n'est pas injecté automatiquement par le framework Spring. La meilleure façon de l'injecter est d'utiliser l'injection de dépendances par constructeur, ce qui garantit que le bean est fourni par le contexte Spring au moment de l'instanciation du contrôleur. Par exemple :
+Ainsi, Spring injectera automatiquement une instance de TodoItemRepository lorsqu'il créera le bean TodoListController.
 
 * Modifier le code en conséquence.
 
